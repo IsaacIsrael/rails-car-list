@@ -1,0 +1,21 @@
+.search-form-control{
+    h1{
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    label{
+      margin: 0;
+      font-size: small;
+    }
+    .form-control {
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border: 1px solid #E7E7E7;
+      &:focus {
+        border: 1px solid #66AFE9;
+        outline: none !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      }
+  }
+}
+
+

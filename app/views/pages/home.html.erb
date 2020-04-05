@@ -1,2 +1,31 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="cars">
+<sidebar class="sidebar">
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <%= f.input :price_filter, label: 'Price start from', class: "form-control string", as: :decimal , required: false, input_html: { value: @search["price_filter"] } %>
+      <%= f.input :mileage_filter, label: 'Mialge start from', class: "form-control string", as: :integer , required: false, input_html: { value: @search["mileage_filter"] } %>
+      <%= f.input :color_filter, label: 'Mialge start from',:collection => @colors, :prompt => "Colors", required: false, selected: @search["color_filter"], input_html:  { class: "select2 form-control string" } %>
+    </div>
+    <%= f.submit 'Search', class: "btn btn-flat"%>
+  <% end %>
+</sidebar>
+<main class="content">
+  <div class="container">
+   <section>
+      <ul class="car-list">
+        <% @cars.each do |car| %>
+          <li class="car-item">
+            <h2 class="item-header">
+              <span><%=car.car_model.description %></span>
+              <span><%=humanized_money_with_symbol car.price %></span>
+            </h2>
+            <p><%=car.VIN %></p>
+            <p><i class="fas fa-tachometer-alt"></i> Mileage: <strong><%= number_with_delimiter(car.mileage) %> miles </strong></p>
+            <p><i class="fas fa-tint"></i> Color: <strong><%= car.color.name %> </strong></p>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+    <%= paginate @cars %>
+</main>
+</div>

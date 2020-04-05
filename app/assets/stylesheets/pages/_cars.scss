@@ -1,0 +1,22 @@
+// Specific CSS for your home-page
+.cars{
+  // padding-top: 10px;
+  display: flex;
+
+  sidebar{
+    background: #fff;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 1rem;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .content{
+    flex-grow: 1;
+    &>*{
+       margin-top: 1rem;
+    }
+  }
+}

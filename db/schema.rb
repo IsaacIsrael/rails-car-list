@@ -10,9 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_04_06_105925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "car_models", force: :cascade do |t|
+    t.string "name"
+    t.string "make"
+    t.string "series"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "VIN"
+    t.integer "mileage"
+    t.integer "year"
+    t.bigint "color_id"
+    t.bigint "car_model_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.index ["car_model_id"], name: "index_cars_on_car_model_id"
+    t.index ["color_id"], name: "index_cars_on_color_id"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "cars", "car_models"
+  add_foreign_key "cars", "colors"
 end

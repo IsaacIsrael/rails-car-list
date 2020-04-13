@@ -3,9 +3,9 @@
 
 The application is a single page and will start with a list of all vehicles and the relevant information about them. The user will be able to filter by mileage, color, size, and price.
 
-[Demo Live here](https://car-sample.herokuapp.com/)
+[ Live Demo here](https://car-sample.herokuapp.com/)
 
-This application use ruby 2.5.3, rails 5.2.3
+This application use ruby 2.5.3 and rails 5.2.3
 
 
 #### Commands

@@ -23,7 +23,7 @@ rspec
 
 #### Comments
 
-My focus on this test was on delivering in a simple way different type of filters. For
+My focus on this test was on delivering in a simple way different types of filters. For
 that I implemented mode Filterable that enable the model to use filter on any combination
 
 I also didnt implemented the size filter, because I dint have any idea what collumn represented it
